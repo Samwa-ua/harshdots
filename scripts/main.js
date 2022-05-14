@@ -3,12 +3,9 @@ const config = {
   width: 1280,
   height: 720,
   scene: [BootScene, StartScene, PreloadScene, GameScene],
-  physics: {
-    default: "arcade",
-    arcade: {
-      debug: false,
-    },
-  },
+  dots: [1, 2, 3, 4, 5, 6],
+  cols: 6,
+  rows: 6,
 };
 
 const game = new Phaser.Game(config);

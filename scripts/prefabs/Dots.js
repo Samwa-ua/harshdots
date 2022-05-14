@@ -3,7 +3,7 @@ class Dots extends Phaser.Physics.Arcade.Group {
     super();
     this.scene = scene;
   }
-  createDot() {
+  createEnemy() {
     let dot = Dot.generate(this.scene);
     this.add(dot);
     dot.move();
