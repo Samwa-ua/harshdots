@@ -29,6 +29,7 @@ class GameScene extends Phaser.Scene {
         this.dots.push(new Dot(this, value));
       }
     }
+    this.input.on("gameobjectdown", this.onDotClicked, this);
   }
   getDotsPosition() {
     let positions = [];
@@ -50,6 +51,9 @@ class GameScene extends Phaser.Scene {
       }
     }
     return Phaser.Utils.Array.Shuffle(positions);
+  }
+  onDotClicked(pointer, dot) {
+    console.log("dot clicked");
   }
 
   createBackground() {
