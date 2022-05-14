@@ -11,4 +11,24 @@ class Dot extends Phaser.GameObjects.Sprite {
     let texture = "dot" + this.value;
     this.setTexture(texture);
   }
+
+  init(position) {
+    this.position = position;
+    this.setPosition(-this.width, -this.height);
+  }
+  move(params) {
+    this.scene.tweens.add({
+      targets: this,
+      x: params.x,
+      y: params.y,
+      delay: params.delay,
+      ease: "Linear",
+      duration: 450,
+      onComplete: () => {
+        if (params.callback) {
+          params.callback();
+        }
+      },
+    });
+  }
 }
