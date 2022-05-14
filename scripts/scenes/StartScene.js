@@ -14,6 +14,12 @@ class StartScene extends Phaser.Scene {
 
   createText() {
     this.add
+      .text(config.width / 2, 300, "Welcome to Harsh Dots", {
+        font: "60px Arial",
+        fill: "#33f",
+      })
+      .setOrigin(0.5);
+    this.add
       .text(config.width / 2, 500, "Tap to Start", {
         font: "40px Arial",
         fill: "#fff",

@@ -67,7 +67,9 @@ class GameScene extends Phaser.Scene {
   }
 
   onDotClicked(pointer, dot) {
-    console.log(this, "dot clicked");
+    if (dot.texture.key === "dot1") {
+      console.log(dot.texture, "dot clicked");
+    }
   }
 
   createBackground() {
