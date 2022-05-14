@@ -41,8 +41,17 @@ class GameScene extends Phaser.Scene {
       }
     }
     this.input.on("gameobjectdown", this.onDotClicked, this);
+    // this.input.on("dragstart", this.onDrag, this);
+    this.input.setDraggable(this.dots);
+
+    this.input.on("drag", function (pointer, dot, dragX, dragY) {
+      dot.x = dragX;
+      dot.y = dragY;
+    });
+
     // this.input.on("pointerdown", this.dotSelect, this);
   }
+
   initDotsPosition() {
     let positions = [];
     let dotTexture = this.textures.get("dot").getSourceImage();
@@ -68,45 +77,14 @@ class GameScene extends Phaser.Scene {
     this.positions = positions;
   }
 
-  dotSelect(pointer) {
-    // if (pointer.position.x === this.dots[0].position.x) {
-    if (pointer.position.x === this.dots[0].texture.key) {
-      console.log("Nice");
-    }
-    // let pointerPosition = pointer.position.x;
-    console.log(pointer, this);
+  // dotSelect(pointer) {
+  //   // if (pointer.position.x === this.dots[0].position.x) {
+  //   if (pointer.position.x === this.dots[0].texture.key) {
+  //     console.log("Nice");
+  //   }
+  //   console.log(pointer, this);
 
-    // if(this.canPick){
-    //     this.dragging = true;
-    //     let row = Math.floor(pointer.y / gameOptions.gemSize);
-    //     let col = Math.floor(pointer.x / gameOptions.gemSize);
-    //     let pickedGem = this.gemAt(row, col)
-    //     if(pickedGem != -1){
-    //         if(this.selectedGem == null){
-    //             pickedGem.gemSprite.setScale(1.2);
-    //             pickedGem.gemSprite.setDepth(1);
-    //             this.selectedGem = pickedGem;
-    //         }
-    //         else{
-    //             if(this.areTheSame(pickedGem, this.selectedGem)){
-    //                 this.selectedGem.gemSprite.setScale(1);
-    //                 this.selectedGem = null;
-    //             }
-    //             else{
-    //                 if(this.areNext(pickedGem, this.selectedGem)){
-    //                     this.selectedGem.gemSprite.setScale(1);
-    //                     this.swapGems(this.selectedGem, pickedGem, true);
-    //                 }
-    //                 else{
-    //                     this.selectedGem.gemSprite.setScale(1);
-    //                     pickedGem.gemSprite.setScale(1.2);
-    //                     this.selectedGem = pickedGem;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-  }
+  // }
 
   onDotClicked(pointer, dot) {
     if (dot.texture.key === "dot1") {
