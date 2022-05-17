@@ -48,8 +48,6 @@ class GameScene extends Phaser.Scene {
       dot.x = dragX;
       dot.y = dragY;
     });
-
-    // this.input.on("pointerdown", this.dotSelect, this);
   }
 
   initDotsPosition() {
@@ -76,15 +74,6 @@ class GameScene extends Phaser.Scene {
     }
     this.positions = positions;
   }
-
-  // dotSelect(pointer) {
-  //   // if (pointer.position.x === this.dots[0].position.x) {
-  //   if (pointer.position.x === this.dots[0].texture.key) {
-  //     console.log("Nice");
-  //   }
-  //   console.log(pointer, this);
-
-  // }
 
   onDotClicked(pointer, dot) {
     if (dot.texture.key === "dot1") {
